@@ -7,6 +7,7 @@ class VowelParser {
    */
   static isVowel(letter: string) {
     // TODO: Implement
+    return this.allVowels.includes(letter);
   }
 }
 
@@ -15,8 +16,9 @@ interface Vowels {
 }
 
 /**
- * Write a function that returns a Vowels instance, where all the vowels are counted.
- * Note that this function should be case insensitive. You cannot use const, let or var in the function.
+ * Write a function that returns a Vowels object, where all the vowels are counted.
+ * Note that this function should be case insensitive. For bonus points, you cannot use const,
+ * let or var in the function.
  *
  * For instance:
  *
@@ -26,6 +28,24 @@ interface Vowels {
  */
 export const count = (str: string): Vowels => {
   // TODO: implement
+  return str
+    .toLowerCase()
+    .split('')
+    .filter(item => VowelParser.isVowel(item))
+    .reduce(
+      (acc, curr) => {
+        if (acc[curr]) {
+          acc[curr]++;
+        } else {
+          acc[curr] = 1;
+        }
+
+        return acc;
+      },
+      {} as Vowels
+    );
 };
 
+console.log(count('Hello World'));
+console.log(count('FooOObAar'));
 console.log(count('thE Quick brown fOx jumps over the LAAAZY dog!!'));
