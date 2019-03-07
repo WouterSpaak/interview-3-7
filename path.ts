@@ -15,7 +15,7 @@ type Edge = [Vertex, Vertex];
  *                         \
  *                          J
  *
- * @param edges All available paths
+ * @param edges All available edges
  * @param from Starting point
  * @param to Endpoint
  */
@@ -38,3 +38,5 @@ export const edges: Edge[] = [
 ];
 
 console.log(canWalk(edges, 'A', 'J'));
+console.log(canWalk(edges, 'G', 'A'));
+console.log(canWalk(edges, 'A', 'A'));
