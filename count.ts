@@ -7,7 +7,6 @@ class VowelParser {
    */
   static isVowel(letter: string) {
     // TODO: Implement
-    return this.allVowels.includes(letter);
   }
 }
 
@@ -28,22 +27,6 @@ interface Vowels {
  */
 export const count = (str: string): Vowels => {
   // TODO: implement
-  return str
-    .toLowerCase()
-    .split('')
-    .filter(item => VowelParser.isVowel(item))
-    .reduce(
-      (acc, curr) => {
-        if (acc[curr]) {
-          acc[curr]++;
-        } else {
-          acc[curr] = 1;
-        }
-
-        return acc;
-      },
-      {} as Vowels
-    );
 };
 
 console.log(count('Hello World'));
